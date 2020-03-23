@@ -29,11 +29,11 @@
   <main>
     <div class="loader"></div>
     <div id="info" data-simplebar data-simplebar-auto-hide="true">
-      <div id="title" style="font-size:23px"><i class="fas fa-bug"></i> Oregon COVID-19 Tracker Map
-        <span><a href="" target="_blank"><i class="fab fa-twitter-square"></i></a></span>
+      <div id="title" style="font-size:23px"><i class="fas fa-bug"></i> Oregon COVID-19 Tracker
+        <span><a href="https://facebook.com/sharer.php?u=https://benjiantolin.github.io/virusOregon/"target="_blank"><i class="fab fa-facebook-square"></i></a></span>
         <span><a href="https://github.com/benjiantolin/virusOregon" target="_blank"><i class="fab fa-github-square"></i></a></span>
-        <span><a data-toggle="modal" data-target="#resourcewindow"><i class="fas fa-info-circle"></i></a></span>
-        <span><a data-toggle="modal" data-target="#infowindow"><i class="nav far fa-question-circle"></i></a></span>
+        <span><a data-toggle="modal" data-target="#resourcewindow"><i class="far fa-question-circle"></i></a></span>
+        <span><a data-toggle="modal" data-target="#infowindow"><i class="nav fas fa-info-circle"></i></a></span>
       </div>
 
       <p><span id="placename">Oregon State Trend</span> </p>
@@ -59,10 +59,10 @@
           <p class="card-text"><span class="neg-count"></span><span class="neg-new-count"></span></p>
         </div>
       </div>
-
-
+<br>
       <div id="total-chart"></div>
       <div id="age-chart"></div>
+              <center><p>Hospitalized Cases <span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
       <div id="hosp-chart"></div>
 
       <div id="footer">
@@ -174,6 +174,23 @@
           <div id="demo" class="carousel " data-ride="carousel">
             <p><a href="https://govstatus.egov.com/OR-OHA-COVID-19" target="_blank">Oregon Health Authority</a></p>
             <p><a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank">Center for Disease Control and Prevention (CDC)</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="hospwindow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="width:1250px!important">
+      <div class="modal-content">
+        <div class="modal-header">
+          <strong class="modal-title" id="exampleModalLongTitle">Hospitalizations</strong>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="demo" class="carousel " data-ride="carousel">
+            <p>* Hospitalization (ever hospitalized) if available.</p>
           </div>
         </div>
       </div>
