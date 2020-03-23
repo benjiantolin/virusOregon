@@ -121,37 +121,35 @@
     <div class="modal-dialog modal-dialog-centered" role="document" style="width:1250px!important">
       <div class="modal-content">
         <div class="modal-header">
-          <strong class="modal-title" id="exampleModalLongTitle">Info</strong>
+          <strong class="modal-title" id="exampleModalLongTitle">Data Source & Attributions</strong>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div id="demo" class="carousel " data-ride="carousel">
-            <p>This online interactive map enables users to track both the Oregon State and County trends of Novel Coronavirus infection since Mar 18th, 2020. The supporting dataset is collected daily from <a
-                href="https://govstatus.egov.com/OR-OHA-COVID-19" target="_blank">The Oregon Health Authority</a> and then plotted onto
-              this web application.</p>
+            <p>
+              This online interactive map enables users to track both Oregon State and
+              County trends of Novel Coronavirus infection since Mar 18th, 2020. The supporting
+              dataset is collected daily and then plotted onto this web application.
+            </p>
             <h5>Data Sources</h5>
-            <!-- <p>The data are mainly collected from 1. <a href="http://www.nhc.gov.cn" target="_blank">National Health Commission</a> (NHC) of the People’s Republic of China
-              2. China’s Provincial & Municipal Health Commission, China’s Provincial & Municipal government database
-              3. Public data published from Hongkong, Macau, and Taiwan official channels
-              4. <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/" target="_blank">World Health Organization</a> (WHO)
-              5. <a href="https://www.cdc.gov/coronavirus/2019-ncov/cases-in-us.html" target="_blank">Centers for Disease Control and Prevention</a> (CDC)
-              6. <a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html" target="_blank">Public Health Agency of Canada</a> (PHAC)
-              7. <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank">Baidu</a>.
-              8. <a href="https://mapmiao.com/ncov/" target="_blank">Mapmiao</a>(data of quarantine area in China).
-              The dataset (in SQLite format) can be downloaded from <a href="http://hgis.uw.edu/virus/assets/virus.db" target="_blank">here</a>.
-              You can view the data (in CSV format) at <a href="http://hgis.uw.edu/virus/assets/virus.csv" target="_blank">here</a>.</p>
+            <p>
+            Oregon COVID-19 Data is collected from
+            <a href="https://govstatus.egov.com/OR-OHA-COVID-19" target="_blank">The Oregon Health Authority</a>
+            and then is plotted onto this web application.
+          </p>
+            <p>You can view the data (in CSV format) at <a href="http://benjiantolin.github.io/virusOregon/assets/timeseries/virusOregon.csv" target="_blank">here</a>.</p>
+                        <p>In the data table, each entry indicates Cases, Deaths, and Negative Test Results in the format of "#-#-#".</p>
 
-            <p>In the data table, each entry indicates the infection status in the format of "#-#-#-#" -- a 4-sequel entry divided by dashes. The first sequel represents the number of confirmed cases, the second sequel represents suspected
-              cases, the third sequel represents cured cases, the fourth sequel represents death cases.</p>
+
+            <p>County Geo Data collected from the <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">U.S. Census Bureau Tiger/Line Shapefiles</a>
+            </p>
+
 
             <h5>Update Procedure</h5>
-
-            <p>The country-level data is collected from WHO, while the data of each province in China is collected from multiple sources such as China's NHC，Mapmiao and Baidu. Notably, we also refer to CDC to verify the virus spreading status in the
-              U.S. To
-              make a timely data and map updates, we collect the data every 4 hours, and verify the data quality per day. In addition, we plan to provide finer-scale data from China (the county level), U.S. (the state level) and Canada (the province
-              level) in the next version.</p> -->
+            The Oregon state and county level COVID-19 data is currently being released daily from OHA. As data is released this application will continue to be updated.
+            <p></p>
 
             <h5>Acknowledgment</h5>
             <p>
@@ -167,14 +165,15 @@
     <div class="modal-dialog modal-dialog-centered" role="document" style="width:1250px!important">
       <div class="modal-content">
         <div class="modal-header">
-          <strong class="modal-title" id="exampleModalLongTitle">Resource</strong>
+          <strong class="modal-title" id="exampleModalLongTitle">Coronavirus information resources</strong>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div id="demo" class="carousel " data-ride="carousel">
-            <h5>Coronavirus information resources</h5>
+            <p><a href="https://govstatus.egov.com/OR-OHA-COVID-19" target="_blank">Oregon Health Authority</a></p>
+            <p><a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank">Center for Disease Control and Prevention (CDC)</a></p>
           </div>
         </div>
       </div>
@@ -347,6 +346,86 @@
         neg: negTests,
       }
 
+
+      function stateCounts(i) {
+        tc = 0, td = 0, nt = 0;
+        datasets[0].forEach(function(d) {
+          var USTd = new Date(d["Date"])
+          t.push(USTd.setHours(USTd.getHours() + 8));
+          tc = 0, td = 0, nt = 0;
+          current = d;
+          delete current["Date"];
+          if (i["name"] = "Oregon") {
+            d = current[i["name"]];
+            if (d == undefined) {
+              d = "0"
+            };
+            items = d.split("-");
+            switch (items.length) {
+              case 3:
+                nt += +items[2];
+              case 2:
+                td += +items[1];
+              case 1:
+                tc += +items[0];
+                break;
+            };
+
+          }
+          i["c"].push(tc);
+          // i["s"].push(sp);
+          i["d"].push(td);
+          // i["neg"].push(nt);
+        });
+
+        $(".confirmed-count").text(tc);
+        $(".neg-count").text(nt);
+        // $(".confirmed-new-count").text("+"+cc);
+        // $(".active-new-count").text(cd);
+        $(".active-count").text(td);
+
+        nc = i.c[i.c.length - 1] - i.c[i.c.length - 2];
+        nr = i.d[i.d.length - 1] - i.d[i.d.length - 2];
+        // nt = i.neg[i.neg.length - 1] - i.neg[i.neg.length - 2];
+
+        if (nc > 0) {
+          $(".confirmed-new-count").text("+" + nc.toString());
+        } else if (nc == 0) {
+          $(".confirmed-new-count").text("");
+        } else {
+
+          $(".confirmed-new-count").text(nc.toString());
+        }
+
+        if (nr > 0) {
+          $(".recovered-new-count").text("+" + nr.toString());
+        } else if (nr == 0) {
+          $(".recovered-new-count").text("")
+        } else {
+          $(".recovered-new-count").text(nr.toString());
+        }
+
+        // if (nt > 0) {
+        //   $(".recovered-new-count").text("+" + nt.toString());
+        // } else if (nt == 0) {
+        //   $(".recovered-new-count").text("")
+        // } else {
+        //   $(".recovered-new-count").text(nt.toString());
+        // }
+        //
+        //
+        if (i["name"] == "Oregon") {
+          $("#placename").text(i["name"] + " State");
+
+        } else {
+
+          $("#placename").text(i["name"] + " County");
+
+        }
+
+
+      }
+
       function countyCounts(i) {
         tc = 0, td = 0, nt = 0;
         datasets[0].forEach(function(d) {
@@ -435,6 +514,7 @@
         //
         if (i["name"] == "Oregon") {
           $("#placename").text(i["name"] + " State");
+
         } else {
 
           $("#placename").text(i["name"] + " County");
@@ -558,7 +638,7 @@
 
 
       $("#hint").on("click", function() {
-        countyCounts(oregon);
+        stateCounts(oregon);
         chart.load({
           columns: [oregon.c, oregon.d],
           unload: ['Cases', 'Deaths'],
@@ -575,7 +655,7 @@
 
       mymap.on('click', onMapClick);
 
-      countyCounts(oregon);
+      stateCounts(oregon);
 
       chart = c3.generate({
         size: {
