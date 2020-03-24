@@ -35,29 +35,6 @@ div#footer>div {
   margin-bottom: 10px
 }
 
-.community {
-  color: #dc3545;
-  font-size: 15px;
-  text-shadow: 0 0 3px #ffffff;
-  visibility: visible !important
-}
-
-.case-marker {
-  width: 10px;
-
-}
-.community-marker {
-  width: 80px;
-}
-
-.community-marker>b {
-  font-family: 'Titillium Web', sans-serif;
-}
-
-.leaflet-marker-icon {
-  visibility: hidden;
-  /* width:20px!important */
-}
 
 #demo {
   font-size: 14px
@@ -120,7 +97,7 @@ div#footer>div {
     display: none;
   }
 
-  #info, #rank-chart, #total-chart, .c3-legend-item, #deck-2, .c3-legend-background, #footer, #title>img, #title>span {
+  #info, #rank-chart, #total-chart,#age-chart, .c3-legend-item, #deck-2, .c3-legend-background, #footer, #title>img, #title>span {
     visibility: hidden !important;
   }
 
@@ -373,6 +350,12 @@ text {
 }
 
 #rank-chart {
+  position: relative;
+  top: 30px;
+  left: -20px;
+}
+
+#age-chart {
   position: relative;
   top: 30px;
   left: -20px;
