@@ -43,14 +43,14 @@
           <div class="card-body confirmed">
             <h5 class="card-title">Confirmed Cases</h5>
           </div>
-          <p class="card-text"><span class="confirmed-count"></span><span class="confirmed-new-count"></span></p>
+          <p class="card-text"><span class="cases-count"></span><span class="confirmed-new-count"></span></p>
         </div>
 
         <div class="card">
           <div class="card-body confirmed">
             <h5 class="card-title">Deaths</h5>
           </div>
-          <p class="card-text"><span class="active-count"></span><span class="active-new-count"></span></p>
+          <p class="card-text"><span class="death-count"></span><span class="active-new-count"></span></p>
         </div>
         <div class="card">
           <div class="card-body confirmed">
@@ -221,7 +221,7 @@
     //   }
     // });
     // Copyright (c) 2013 Ryan Clark
-    $("#date").text("Last update: 3/23/2020");
+    $("#date").text("Last update: 3/24/2020");
 
 
     // var createLabelIcon = function(labelClass, labelText) {
@@ -315,7 +315,7 @@
       d3.csv('assets/timeseries/ORTests.csv'),
       d3.csv('assets/current/hospitalized.csv'),
       d3.csv('assets/current/ORAgePie.csv'),
-      d3.json("assets/virusWashingtonMin.geojson")
+      // d3.json("assets/virusWashingtonMin.geojson")
     ]).then(function(datasets) {
 
 
@@ -400,11 +400,11 @@
           // i["neg"].push(nt);
         });
 
-        $(".confirmed-count").text(tc);
+        $(".cases-count").text(tc);
         $(".neg-count").text(nt);
         // $(".confirmed-new-count").text("+"+cc);
         // $(".active-new-count").text(cd);
-        $(".active-count").text(td);
+        $(".death-count").text(td);
 
         nc = i.c[i.c.length - 1] - i.c[i.c.length - 2];
         nr = i.d[i.d.length - 1] - i.d[i.d.length - 2];
@@ -498,11 +498,11 @@
           // i["neg"].push(nt);
         });
 
-        $(".confirmed-count").text(tc);
+        $(".cases-count").text(tc);
         $(".neg-count").text(nt);
         // $(".confirmed-new-count").text("+"+cc);
         // $(".active-new-count").text(cd);
-        $(".active-count").text(td);
+        $(".death-count").text(td);
 
         nc = i.c[i.c.length - 1] - i.c[i.c.length - 2];
         nr = i.d[i.d.length - 1] - i.d[i.d.length - 2];
@@ -545,6 +545,7 @@
 
 
       }
+
 
       function setColor(cases) {
 

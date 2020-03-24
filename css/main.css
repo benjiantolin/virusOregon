@@ -379,12 +379,12 @@ text {
   font-size: 13px;
 }
 
-.confirmed-count {
+.cases-count {
   color: #dc3545;
 }
 
 
-.active-count {
+.cases-new-count {
   color: orange;
 }
 
