@@ -67,8 +67,9 @@
       </div>
 <br>
       <div id="total-chart"></div>
+      <center><p>Statewide Confirmed Cases by Age Group <span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
       <div id="age-chart"></div>
-              <center><p>Hospitalized Cases <span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
+      <center><p>Statewide Hospitalized Cases <span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
       <div id="hosp-chart"></div>
 
       <div id="footer">
@@ -190,22 +191,8 @@
       </div>
     </div>
   </div>
-  <div id="hospwindow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="width:1250px!important">
-      <div class="modal-content">
-        <div class="modal-header">
-          <strong class="modal-title" id="exampleModalLongTitle">Hospitalizations</strong>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div id="demo" class="carousel " data-ride="carousel">
-            <p>* Hospitalization (ever hospitalized) if available.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="hospwindow">Hover over me
+    <span class="tooltiptext">* Hospitalization (ever hospitalized) if available.</span>
   </div>
   <script>
     $(window).ready(function() {

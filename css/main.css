@@ -345,20 +345,20 @@ text {
 
 #total-chart {
   position: relative;
-  top: 10px;
-  left: -20px;
+  /* top: 10px;
+  left: -20px; */
 }
 
 #age-chart {
   position: relative;
-  top: 30px;
-  left: -20px;
+  /* top: 30px;
+  left: -20px; */
 }
 
 #age-chart {
   position: relative;
-  top: 30px;
-  left: -20px;
+  /* top: 30px;
+  left: -20px; */
 }
 
 #age-chart>div>table>tbody>tr>td>span {
@@ -446,6 +446,11 @@ width: 150px;
    text-align:center;
    padding:20px;
 }
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 /* .textLabelclass a {
   white-space: nowrap;
   font-size: 10px;
