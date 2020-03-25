@@ -67,10 +67,19 @@
       </div>
 <br>
       <div id="total-chart"></div>
-      <center><p>Statewide Confirmed Cases by Age Group <span></a></span></p></center>
+      <center><p>Statewide Confirmed Cases by Age Group<span></a></span></p></center>
       <div id="age-chart"></div>
-      <center><p>Statewide Hospitalized Cases <span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
-      <div id="hosp-chart"></div>
+      <div id="deck-1" class="card-deck counts">
+        <div class="card">
+          <center><p>Statewide Confirmed Cases by Sex<span></a></span></p></center>
+          <div id="sex-chart"></div>
+        </div>
+        <div class="card">
+          <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
+          <div id="hosp-chart"></div>
+        </div>
+      </div>
+
 
       <div id="footer">
         If you have any questions or concerns, please contact <a href="mailto:benjiantolin@gmail.com">Benji Antolin</a>.
@@ -325,7 +334,7 @@
     Promise.all([
       d3.csv('assets/timeseries/virusOregon.csv'),
       d3.json("assets/virusOregonMin.geojson"),
-      d3.csv('assets/timeseries/ORAges.csv'),
+      d3.csv('assets/current/ORSex.csv'),
       d3.csv('assets/current/hospitalized.csv'),
       d3.csv('assets/current/ORAgePie.csv'),
       // d3.json("assets/virusWashingtonMin.geojson")
@@ -559,92 +568,92 @@
 
       }
 
-      function ageCounts(i) {
-        datasets[2].forEach(function(d) {
-          var USTd = new Date(d["Date"])
-          t.push(USTd.setHours(USTd.getHours() + 8));
-          youth = 0, yadulth = 0, m = 0;
-          current = d;
-          delete current["Date"];
-          if (i["name"] != "Oregon") {
-            d = current[i["name"]];
-            if (d == undefined) {
-              d = "0"
-
-            };
-          } else {
-
-            Object.values(current).forEach(function(d) {
-              if (d == undefined) {
-                d = "0"
-              };
-              items = d.split("-");
-              switch (items.length) {
-                case 3:
-                  nt += +items[2];
-                case 2:
-                  td += +items[1];
-                case 1:
-                  tc += +items[0];
-                  break;
-              };
-
-            });
-            //
-          }
-          i["c"].push(tc);
-          // i["s"].push(sp);
-          i["d"].push(td);
-          // i["neg"].push(nt);
-        });
-
-        $(".cases-count").text(tc);
-        $(".neg-count").text(nt);
-        // $(".confirmed-new-count").text("+"+cc);
-        // $(".active-new-count").text(cd);
-        $(".death-count").text(td);
-
-        nc = i.c[i.c.length - 1] - i.c[i.c.length - 2];
-        nr = i.d[i.d.length - 1] - i.d[i.d.length - 2];
-        // nt = i.neg[i.neg.length - 1] - i.neg[i.neg.length - 2];
-
-        if (nc > 0) {
-          $(".confirmed-new-count").text("+" + nc.toString());
-        } else if (nc == 0) {
-          $(".confirmed-new-count").text("");
-        } else {
-
-          $(".confirmed-new-count").text(nc.toString());
-        }
-
-        if (nr > 0) {
-          $(".recovered-new-count").text("+" + nr.toString());
-        } else if (nr == 0) {
-          $(".recovered-new-count").text("")
-        } else {
-          $(".recovered-new-count").text(nr.toString());
-        }
-
-        // if (nt > 0) {
-        //   $(".recovered-new-count").text("+" + nt.toString());
-        // } else if (nt == 0) {
-        //   $(".recovered-new-count").text("")
-        // } else {
-        //   $(".recovered-new-count").text(nt.toString());
-        // }
-        //
-        //
-        if (i["name"] == "Oregon") {
-          $("#placename").text(i["name"] + " State");
-
-        } else {
-
-          $("#placename").text(i["name"] + " County");
-
-        }
-
-
-      }
+      // function ageCounts(i) {
+      //   datasets[2].forEach(function(d) {
+      //     var USTd = new Date(d["Date"])
+      //     t.push(USTd.setHours(USTd.getHours() + 8));
+      //     youth = 0, yadulth = 0, m = 0;
+      //     current = d;
+      //     delete current["Date"];
+      //     if (i["name"] != "Oregon") {
+      //       d = current[i["name"]];
+      //       if (d == undefined) {
+      //         d = "0"
+      //
+      //       };
+      //     } else {
+      //
+      //       Object.values(current).forEach(function(d) {
+      //         if (d == undefined) {
+      //           d = "0"
+      //         };
+      //         items = d.split("-");
+      //         switch (items.length) {
+      //           case 3:
+      //             nt += +items[2];
+      //           case 2:
+      //             td += +items[1];
+      //           case 1:
+      //             tc += +items[0];
+      //             break;
+      //         };
+      //
+      //       });
+      //       //
+      //     }
+      //     i["c"].push(tc);
+      //     // i["s"].push(sp);
+      //     i["d"].push(td);
+      //     // i["neg"].push(nt);
+      //   });
+      //
+      //   $(".cases-count").text(tc);
+      //   $(".neg-count").text(nt);
+      //   // $(".confirmed-new-count").text("+"+cc);
+      //   // $(".active-new-count").text(cd);
+      //   $(".death-count").text(td);
+      //
+      //   nc = i.c[i.c.length - 1] - i.c[i.c.length - 2];
+      //   nr = i.d[i.d.length - 1] - i.d[i.d.length - 2];
+      //   // nt = i.neg[i.neg.length - 1] - i.neg[i.neg.length - 2];
+      //
+      //   if (nc > 0) {
+      //     $(".confirmed-new-count").text("+" + nc.toString());
+      //   } else if (nc == 0) {
+      //     $(".confirmed-new-count").text("");
+      //   } else {
+      //
+      //     $(".confirmed-new-count").text(nc.toString());
+      //   }
+      //
+      //   if (nr > 0) {
+      //     $(".recovered-new-count").text("+" + nr.toString());
+      //   } else if (nr == 0) {
+      //     $(".recovered-new-count").text("")
+      //   } else {
+      //     $(".recovered-new-count").text(nr.toString());
+      //   }
+      //
+      //   // if (nt > 0) {
+      //   //   $(".recovered-new-count").text("+" + nt.toString());
+      //   // } else if (nt == 0) {
+      //   //   $(".recovered-new-count").text("")
+      //   // } else {
+      //   //   $(".recovered-new-count").text(nt.toString());
+      //   // }
+      //   //
+      //   //
+      //   if (i["name"] == "Oregon") {
+      //     $("#placename").text(i["name"] + " State");
+      //
+      //   } else {
+      //
+      //     $("#placename").text(i["name"] + " County");
+      //
+      //   }
+      //
+      //
+      // }
 
       function setColor(cases) {
 
@@ -944,6 +953,37 @@
           }
         },
         bindto: "#hosp-chart"
+      });
+
+      // Aggregate Proportion of Hospitilizations Pie Chart
+
+      var female = ["Female"];
+      var male = ["Male"];
+      var na = ["Not available"];
+
+      datasets[2].forEach(function(d) {
+        female.push(+d["Female"])
+        male.push(+d["Male"])
+        na.push(+d["Not available"])
+      });
+
+      hospchart = c3.generate({
+        data: {
+          columns: [female, male, na],
+          type: 'pie',
+          labels: true,
+        },
+        color: {
+          pattern: ['#b5573a', '#4769a1', 'grey']
+        },
+        tooltip: {
+          format: {
+            value: function(value, ratio, id, index) {
+              return value + " Cases";
+            }
+          }
+        },
+        bindto: "#sex-chart"
       });
     });
 
