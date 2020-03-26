@@ -56,7 +56,7 @@
           <div class="card-body confirmed">
             <h5 class="card-title">Deaths</h5>
           </div>
-          <p class="card-text"><span class="death-count"></span><span class="active-new-count"></span></p>
+          <p class="card-text"><span class="death-count"></span><span class="death-new-count"></span></p>
         </div>
         <div class="card">
           <div class="card-body confirmed">
@@ -112,27 +112,27 @@
         </div>
         <div class="card">
           <div class="card-body  legend-color-3">
-            <h5 class="card-title" style="color:black">5-10</h5>
+            <h5 class="card-title" style="color:black">5-14</h5>
 
           </div>
         </div>
 
         <div class="card">
           <div class="card-body  legend-color-4">
-            <h5 class="card-title" style="color:black">11-25</h5>
+            <h5 class="card-title" style="color:black">15-25</h5>
 
           </div>
         </div>
 
         <div class="card">
           <div class="card-body legend-color-5">
-            <h5 class="card-title" style="color:black">26-43</h5>
+            <h5 class="card-title" style="color:black">26-56</h5>
           </div>
         </div>
 
         <div class="card">
           <div class="card-body legend-color-6">
-            <h5 class="card-title" style="color:black">44+</h5>
+            <h5 class="card-title" style="color:black">57+</h5>
           </div>
         </div>
       </div>
@@ -442,11 +442,11 @@
         }
 
         if (nr > 0) {
-          $(".recovered-new-count").text("+" + nr.toString());
+          $(".death-new-count").text("+" + nr.toString());
         } else if (nr == 0) {
-          $(".recovered-new-count").text("")
+          $(".death-new-count").text("")
         } else {
-          $(".recovered-new-count").text(nr.toString());
+          $(".death-new-count").text(nr.toString());
         }
 
         // if (nt > 0) {
@@ -540,11 +540,11 @@
         }
 
         if (nr > 0) {
-          $(".recovered-new-count").text("+" + nr.toString());
+          $(".death-new-count").text("+" + nr.toString());
         } else if (nr == 0) {
-          $(".recovered-new-count").text("")
+          $(".death-new-count").text("")
         } else {
-          $(".recovered-new-count").text(nr.toString());
+          $(".death-new-count").text(nr.toString());
         }
 
         // if (nt > 0) {
@@ -657,13 +657,13 @@
 
       function setColor(cases) {
 
-        if (cases >= 43) {
+        if (cases >= 57) {
           id = 5;
-        } else if (cases > 25 && cases <= 43) {
+        } else if (cases > 26 && cases <= 57) {
           id = 4;
-        } else if (cases > 10 && cases <= 25) {
+        } else if (cases > 15 && cases <= 26) {
           id = 3;
-        } else if (cases > 4 && cases <= 10) {
+        } else if (cases > 4 && cases <= 15) {
           id = 2;
         } else if (cases > 0 && cases <= 4) {
           id = 1;
@@ -877,7 +877,6 @@
 
       var group = ["Age Group"];
       var cases = ["Cases"];
-
 
       datasets[4].forEach(function(d) {
         group.push(+d["Age Group"])

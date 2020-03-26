@@ -1,4 +1,4 @@
-t,Positive,Negative,Pending
+t,Positive,Negative,Pending,Total Completed Tests,Total Deaths
 3/18/2020,75,1118,361
 3/19/2020,88,1329,437
 3/20/2020,114,2003,433
@@ -7,3 +7,4 @@ t,Positive,Negative,Pending
 3/23/2020,191,3649,
 3/24/2020,209,4350,
 3/25/2020,266,5476,
+3/26/2020,316,6953,,7269,11
