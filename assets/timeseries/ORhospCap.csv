@@ -1,2 +1,3 @@
-t,Available ICU beds,Available non-ICU beds,Available ventilators
-3/26/2020,362,2193,684
+t,Available ICU beds,Available non-ICU beds,Available ventilators,COVID-19 admissions,COVID-19 patients on ventilators
+3/26/2020,362,2193,684,,,
+3/27/2020,360,2294,715,91,31

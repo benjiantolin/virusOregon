@@ -65,11 +65,21 @@
           <p class="card-text"><span class="neg-count"></span><span class="neg-new-count"></span></p>
         </div>
       </div>
-<br>
+
+      <div id="deck-2" class="card-deck counts">
+        <div class="card">
+          <!-- <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center> -->
       <div id="total-chart"></div>
+        </div>
+      </div>
+
+      <div id="deck-3" class="card-deck counts">
+        <div class="card">
       <center><p>Statewide Confirmed Cases by Age Group<span></a></span></p></center>
-      <div id="age-chart"></div>
-      <div id="deck-1" class="card-deck counts">
+            <div id="age-chart"></div>
+        </div>
+      </div>
+      <div id="deck-4" class="card-deck counts">
         <div class="card">
           <center><p>Statewide Confirmed Cases by Sex<span></a></span></p></center>
           <div id="sex-chart"></div>
@@ -79,11 +89,13 @@
           <div id="hosp-chart"></div>
         </div>
       </div>
-
-
-      <div id="footer">
-        If you have any questions or concerns, please contact <a href="mailto:benjiantolin@gmail.com">Benji Antolin</a>.
+      <div id="deck-5" class="card-deck counts">
+        <div class="card">
+<a class="twitter-timeline" href="https://twitter.com/OHAOregon?ref_src=twsrc%5Etfw">Tweets by OHAOregon</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
       </div>
+
+
 
 
     </div>
@@ -174,9 +186,11 @@
             The Oregon state and county level COVID-19 data is currently being released daily from <a href="https://govstatus.egov.com/OR-OHA-COVID-19" target="_blank">OHA</a>. As data is released this application will continue to be updated.
             <h5>Acknowledgment</h5>
             <p>
-              <li>Created by: Benji Antolin</li>
               <li>Insipired by: Bo Zhao and UW HGIS Lab <a href="https://hgis.uw.edu/virus/" target="_blank">Global COVID 19 Map</a></li>
             </p>
+            <div>
+              * If you have any questions or concerns, please contact <a href="mailto:benjiantolin@gmail.com">Benji Antolin</a>.
+            </div>
           </div>
         </div>
       </div>
@@ -237,7 +251,7 @@
     //   }
     // });
     // Copyright (c) 2013 Ryan Clark
-    $("#date").text("Last update: 3/26/2020");
+    $("#date").text("Last update: 3/28/2020");
 
 
     // var createLabelIcon = function(labelClass, labelText) {
