@@ -34,14 +34,17 @@
   <main>
     <div class="loader"></div>
     <div id="info" data-simplebar data-simplebar-auto-hide="true">
-      <div id="title" style="font-size:23px"><i class="fas fa-bug"></i> Oregon COVID-19 Tracker
-        <span><a href="https://facebook.com/sharer.php?u=https://benjiantolin.github.io/virusOregon/"target="_blank"><i class="fab fa-facebook-square"></i></a></span>
-        <span><a href="https://github.com/benjiantolin/virusOregon" target="_blank"><i class="fab fa-github-square"></i></a></span>
-        <span><a data-toggle="modal" data-target="#resourcewindow"><i class="far fa-question-circle"></i></a></span>
-        <span><a data-toggle="modal" data-target="#infowindow"><i class="nav fas fa-info-circle"></i></a></span>
-      </div>
 
-      <p><span id="placename">Oregon State Trend</span> </p>
+        <div id="title" style="font-size:23px"><i class="fas fa-bug"></i> Oregon COVID-19 Tracker
+          <span><a href="https://facebook.com/sharer.php?u=https://benjiantolin.github.io/virusOregon/"target="_blank"><i class="fab fa-facebook-square"></i></a></span>
+          <span><a href="https://github.com/benjiantolin/virusOregon" target="_blank"><i class="fab fa-github-square"></i></a></span>
+          <span><a data-toggle="modal" data-target="#resourcewindow"><i class="far fa-question-circle"></i></a></span>
+          <span><a data-toggle="modal" data-target="#infowindow"><i class="nav fas fa-info-circle"></i></a></span>
+        </div>
+
+
+
+      <p><span id="placename">Oregon State</span> </p>
       <div> <span id="date"></span> <span id="hint"> Click on smap to review county statistics.</span></div>
       <div id="deck-1" class="card-deck counts">
         <div class="card">
@@ -70,13 +73,14 @@
         <div class="card">
           <!-- <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center> -->
       <div id="total-chart"></div>
+
         </div>
       </div>
 
       <div id="deck-3" class="card-deck counts">
         <div class="card">
-      <center><p>Statewide Confirmed Cases by Age Group<span></a></span></p></center>
-            <div id="age-chart"></div>
+          <center><p>Statewide Confirmed Cases by Age Group<span></a></span></p></center>
+                <div id="agegroup-chart"></div>
         </div>
       </div>
       <div id="deck-4" class="card-deck counts">
@@ -85,7 +89,7 @@
           <div id="sex-chart"></div>
         </div>
         <div class="card">
-          <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
+          <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info -circle"></i></a></span></p></center>
           <div id="hosp-chart"></div>
         </div>
       </div>
@@ -251,7 +255,7 @@
     //   }
     // });
     // Copyright (c) 2013 Ryan Clark
-    $("#date").text("Last update: 3/28/2020");
+    $("#date").text("Last update: 3/30/2020");
 
 
     // var createLabelIcon = function(labelClass, labelText) {
@@ -307,7 +311,7 @@
 
 
 
-    var chart, rchart;
+    var chart, agechart;
 
     var colors = chroma.scale('YlOrRd').mode('lch').colors(6);
     for (i = 0; i < 6; i++) {
@@ -433,7 +437,7 @@
           i["c"].push(tc);
           // i["s"].push(sp);
           i["d"].push(td);
-          // i["neg"].push(nt);
+          i["neg"].push(nt);
         });
 
         $(".cases-count").text(tc);
@@ -443,8 +447,8 @@
         $(".death-count").text(td);
 
         nc = i.c[i.c.length - 1] - i.c[i.c.length - 2];
-        nr = i.d[i.d.length - 1] - i.d[i.d.length - 2];
-        // nt = i.neg[i.neg.length - 1] - i.neg[i.neg.length - 2];
+        nd = i.d[i.d.length - 1] - i.d[i.d.length - 2];
+        // nnt = i.neg[i.neg.length - 1] - i.neg[i.neg.length - 2];
 
         if (nc > 0) {
           $(".confirmed-new-count").text("+" + nc.toString());
@@ -455,20 +459,20 @@
           $(".confirmed-new-count").text(nc.toString());
         }
 
-        if (nr > 0) {
-          $(".death-new-count").text("+" + nr.toString());
-        } else if (nr == 0) {
+        if (nd > 0) {
+          $(".death-new-count").text("+" + nd.toString());
+        } else if (nd == 0) {
           $(".death-new-count").text("")
         } else {
-          $(".death-new-count").text(nr.toString());
+          $(".death-new-count").text(nd.toString());
         }
 
-        // if (nt > 0) {
-        //   $(".recovered-new-count").text("+" + nt.toString());
-        // } else if (nt == 0) {
-        //   $(".recovered-new-count").text("")
+        // if (nnt > 0) {
+        //   $(".neg-new-count").text("+" + nnt.toString());
+        // } else if (nnt == 0) {
+        //   $(".neg-new-count").text("")
         // } else {
-        //   $(".recovered-new-count").text(nt.toString());
+        //   $(".neg-new-count").text(nnt.toString());
         // }
         //
         //
@@ -531,7 +535,7 @@
           i["c"].push(tc);
           // i["s"].push(sp);
           i["d"].push(td);
-          // i["neg"].push(nt);
+          // i["n"].push(nt);
         });
 
         $(".cases-count").text(tc);
@@ -541,8 +545,8 @@
         $(".death-count").text(td);
 
         nc = i.c[i.c.length - 1] - i.c[i.c.length - 2];
-        nr = i.d[i.d.length - 1] - i.d[i.d.length - 2];
-        // nt = i.neg[i.neg.length - 1] - i.neg[i.neg.length - 2];
+        nd = i.d[i.d.length - 1] - i.d[i.d.length - 2];
+        // nnt = i.neg[i.neg.length - 1] - i.neg[i.neg.length - 2];
 
         if (nc > 0) {
           $(".confirmed-new-count").text("+" + nc.toString());
@@ -553,23 +557,23 @@
           $(".confirmed-new-count").text(nc.toString());
         }
 
-        if (nr > 0) {
-          $(".death-new-count").text("+" + nr.toString());
-        } else if (nr == 0) {
+        if (nd > 0) {
+          $(".death-new-count").text("+" + nd.toString());
+        } else if (nd == 0) {
           $(".death-new-count").text("")
         } else {
-          $(".death-new-count").text(nr.toString());
+          $(".death-new-count").text(nd.toString());
         }
 
-        // if (nt > 0) {
-        //   $(".recovered-new-count").text("+" + nt.toString());
+        // if (nnt > 0) {
+        //   $(".neg-new-count").text("+" + nnt.toString());
         // } else if (nt == 0) {
-        //   $(".recovered-new-count").text("")
+        //   $(".neg-new-count").text("")
         // } else {
-        //   $(".recovered-new-count").text(nt.toString());
+        //   $(".neg-new-count").text(nnt.toString());
         // }
-        //
-        //
+
+
         if (i["name"] == "Oregon") {
           $("#placename").text(i["name"] + " State");
 
@@ -891,13 +895,19 @@
 
       var group = ["Age Group"];
       var cases = ["Cases"];
+      // var nonhosp = ["Non Hospitalized"]
+      // var hosp = ["Hospitalized"];
+      // var deaths = ["Deaths"];
 
       datasets[4].forEach(function(d) {
         group.push(+d["Age Group"])
         cases.push(+d["Cases"])
+        // nonhosp.push(+d["Non Hospitalized"])
+        // hosp.push(+d["Hospitalized"])
+        // deaths.push(+d["Deaths"])
       });
 
-      agechart = c3.generate({
+      var agechart = c3.generate({
         size: {
           height: 280,
           width: 440
@@ -905,12 +915,9 @@
         data: {
           columns: [cases],
           type: 'bar',
+          // groups:["Non Hospitalized","Hospitalized","Deaths"],
           labels: true,
         },
-        // zoom: {
-        //   enabled: true,
-        //   type: 'drag',
-        // },
         axis: {
           x: {
             label: {
@@ -934,7 +941,7 @@
         legend: {
           hide: true,
         },
-        bindto: "#age-chart"
+        bindto: "#agegroup-chart"
       });
 
       // Aggregate Proportion of Hospitilizations Pie Chart
@@ -980,7 +987,7 @@
         na.push(+d["Not available"])
       });
 
-      hospchart = c3.generate({
+      sexchart = c3.generate({
         data: {
           columns: [female, male, na],
           type: 'pie',

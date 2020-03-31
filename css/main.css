@@ -355,11 +355,6 @@ text {
   left: -20px; */
 }
 
-#age-chart {
-  position: relative;
-  /* top: 30px;
-  left: -20px; */
-}
 
 #age-chart>div>table>tbody>tr>td>span {
   background-color: #dc3545 !important
@@ -392,7 +387,7 @@ text {
   color: orange;
 } */
 
-.recovered-count {
+.neg-count {
   color: #28a745;
 }
 
@@ -428,7 +423,7 @@ font-kerning: normal;
 }
 
 
-.recovered-new-count {
+.neg-new-count {
 vertical-align:super !important;
 font-size:50% !important;
 color: #28a745;
