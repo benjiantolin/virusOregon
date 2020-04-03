@@ -71,7 +71,7 @@
 
       <div id="deck-2" class="card-deck counts">
         <div class="card">
-          <!-- <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center> -->
+          <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
       <div id="total-chart"></div>
 
         </div>
@@ -895,16 +895,16 @@
 
       var group = ["Age Group"];
       var cases = ["Cases"];
-      // var nonhosp = ["Non Hospitalized"]
-      // var hosp = ["Hospitalized"];
-      // var deaths = ["Deaths"];
+      var nonhosp = ["Non Hospitalized"]
+      var hosp = ["Hospitalized"];
+      var deaths = ["Deaths"];
 
       datasets[4].forEach(function(d) {
         group.push(+d["Age Group"])
         cases.push(+d["Cases"])
-        // nonhosp.push(+d["Non Hospitalized"])
-        // hosp.push(+d["Hospitalized"])
-        // deaths.push(+d["Deaths"])
+        nonhosp.push(+d["Non Hospitalized"])
+        hosp.push(+d["Hospitalized"])
+        deaths.push(+d["Deaths"])
       });
 
       var agechart = c3.generate({

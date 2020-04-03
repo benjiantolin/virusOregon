@@ -1,7 +1,3 @@
-Available adult ICU beds,285
-Available adult non-ICU beds,2010
-Available pediatric beds,193
-Available pediatric ICU beds,66
-Available ventilators,767
-COVID-19 admissions,147
-COVID-19 patients on ventilators,37
+Counts,Adult ICU beds,Adult non-ICU beds,Pediatric beds,Pediatric ICU beds,Ventilators,COVID-19 admissions,COVID-19 patients on ventilators
+Available,291,2006,66,193,762,,
+Total,666,5884,193,268,,134,38

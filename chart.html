@@ -9,60 +9,65 @@
 
 <body>
   <main>
-    <div id ="agechart"></div>
+    <div id="agechart"></div>
   </main>
   <script>
+    Promise.all([
+      d3.csv('assets/current/ORAgePie.csv')
+    ]).then(function(datasets) {
 
+      var group = ["Age Group"];
+      var cases = ["Cases"];
+      var nonhosp = ["Non-Hospitalized"]
+      var hosp = ["Hospitalized"];
+      var deaths = ["Deaths"];
 
-  Promise.all([
-    d3.csv('assets/current/ORAgePie.csv')
-  ]).then(function(datasets) {
-
-    var group = ["Age Group"];
-    var cases = ["Cases"];
-    var nonhosp = ["Non Hospitalized"]
-    var hosp = ["Hospitalized"];
-    var deaths = ["Deaths"];
-
-    datasets[0].forEach(function(d) {
-      group.push(+d["Age Group"])
-      cases.push(+d["Cases"])
-      nonhosp.push(+d["Non Hospitalized"])
-      hosp.push(+d["Hospitalized"])
-      deaths.push(+d["Deaths"])
-    });
-    var chart = c3.generate({
+      datasets[0].forEach(function(d) {
+        group.push(+d["Age Group"])
+        cases.push(+d["Cases"])
+        nonhosp.push(+d["Non-Hospitalized"])
+        hosp.push(+d["Hospitalized"])
+        deaths.push(+d["Deaths"])
+      });
+      var chart = c3.generate({
         data: {
-            columns: [
-                nonhosp,
-                hosp,
-                deaths
-            ],
-            type: 'bar',
-            groups: ["Non Hospitalized", "Hospitalized", "Deaths"]
+          columns: [
+            nonhosp,
+            hosp,
+            deaths
+          ],
+          type: 'bar',
+          groups: [
+            ['Non-Hospitalized', 'Hospitalized', 'Deaths']
+          ],
+        },
+        color: {
+          pattern: ['#dc3545', '#ccd138', '#5d4f72e8']
         },
         grid: {
-            y: {
-                lines: [{value:0}]
-            }
+          y: {
+            lines: [{
+              value: 0
+            }]
+          }
         },
-        bindto:"#agechart"
-    });
-    // agechart = c3.generate({
-    //   size: {
-    //     height: 280,
-    //     width: 440
-    //   },
-    //   data: {
-    //     columns: [nonhosp,hosp],
-    //     type: 'bar',
-    //     groups:[nonhosp,hosp],
-    //     labels: true,
-    //   },
-    //   bindto: "#agechart"
-    // });
+        bindto: "#agechart"
+      });
+      // agechart = c3.generate({
+      //   size: {
+      //     height: 280,
+      //     width: 440
+      //   },
+      //   data: {
+      //     columns: [nonhosp,hosp],
+      //     type: 'bar',
+      //     groups:[nonhosp,hosp],
+      //     labels: true,
+      //   },
+      //   bindto: "#agechart"
+      // });
 
 
-  })
-      </script>
+    })
+  </script>
 </body>

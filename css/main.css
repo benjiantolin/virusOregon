@@ -92,6 +92,7 @@ div#footer>div {
   stroke: transparent;
 }
 
+/* Responsive css */
 @media only screen and (max-width: 1026px) {
   .legend, .leaflet-control-layers {
     display: none;
@@ -330,9 +331,8 @@ text {
 }
 
 .c3-bar {
-  fill: #dc3545 !important;
+  /* fill: #dc3545 !important; */
 }
-
 .name {
   background-color: black;
   color: black
@@ -349,16 +349,16 @@ text {
   left: -20px; */
 }
 
-#age-chart {
+#agegroup-chart {
   position: relative;
   /* top: 30px;
   left: -20px; */
 }
 
 
-#age-chart>div>table>tbody>tr>td>span {
+/* #agegroup-chart>div>table>tbody>tr>td>span {
   background-color: #dc3545 !important
-}
+} */
 
 #footer {
   position: relative;

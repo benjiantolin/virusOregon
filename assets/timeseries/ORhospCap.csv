@@ -1,5 +1,6 @@
-t,Available ICU beds,Available non-ICU beds,Available ventilators,COVID-19 admissions,COVID-19 patients on ventilators
+t,Adult ICU beds,Adult non-ICU beds,Pediatric NICU/PICU beds,Pediatric non-ICU beds,Ventilators,COVID-19 admissions,COVID-19 patients on ventilators
 3/26/2020,362,2193,684,,
 3/27/2020,360,2294,715,91,31
-3/29/2020,285-66,2010-193,767,142,37
-,,,,,
+3/29/2020,285,66,2010,193,767,142,37
+3/31/2020,280-690,2113-5986,85-198,203-294,749,213,40
+4/1/2020,291-666,2006-5884,66-193,193-268,762,134,38
