@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
-   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
   <link href="css/c3.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/simplebar.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -27,7 +27,7 @@
   <script src="js/simplebar.min.js"></script>
   <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-<script src="https://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
+  <script src="https://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
 </head>
 
 <body>
@@ -35,12 +35,12 @@
     <div class="loader"></div>
     <div id="info" data-simplebar data-simplebar-auto-hide="true">
 
-        <div id="title" style="font-size:23px"><i class="fas fa-bug"></i> Oregon COVID-19 Tracker
-          <span><a href="https://facebook.com/sharer.php?u=https://benjiantolin.github.io/virusOregon/"target="_blank"><i class="fab fa-facebook-square"></i></a></span>
-          <span><a href="https://github.com/benjiantolin/virusOregon" target="_blank"><i class="fab fa-github-square"></i></a></span>
-          <span><a data-toggle="modal" data-target="#resourcewindow"><i class="far fa-question-circle"></i></a></span>
-          <span><a data-toggle="modal" data-target="#infowindow"><i class="nav fas fa-info-circle"></i></a></span>
-        </div>
+      <div id="title" style="font-size:23px"><i class="fas fa-bug"></i> Oregon COVID-19 Tracker
+        <span><a href="https://facebook.com/sharer.php?u=https://benjiantolin.github.io/virusOregon/" target="_blank"><i class="fab fa-facebook-square"></i></a></span>
+        <span><a href="https://github.com/benjiantolin/virusOregon" target="_blank"><i class="fab fa-github-square"></i></a></span>
+        <span><a data-toggle="modal" data-target="#resourcewindow"><i class="far fa-question-circle"></i></a></span>
+        <span><a data-toggle="modal" data-target="#infowindow"><i class="nav fas fa-info-circle"></i></a></span>
+      </div>
 
 
 
@@ -71,31 +71,61 @@
 
       <div id="deck-2" class="card-deck counts">
         <div class="card">
-          <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center>
-      <div id="total-chart"></div>
+          <!-- <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info-circle"></i></a></span></p></center> -->
+          <div id="total-chart"></div>
 
         </div>
       </div>
 
+      <div id="deck-1" class="card-deck counts">
+        <div class="card">
+          <div class="card-body confirmed">
+            <h5 class="card-title">Adult Hospital Beds</h5>
+          </div>
+          <div id="abed-guage"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-body confirmed">
+            <h5 class="card-title">Pediatric Hospital Beds</h5>
+          </div>
+          <div id="pbed-guage"></div>
+        </div>
+        <div class="card">
+          <div class="card-body confirmed">
+            <h5 class="card-title">COVID-19 patients on ventilators</h5>
+          </div>
+          <div id="vent-guage"></div>
+        </div>
+      </div>
+
+
       <div id="deck-3" class="card-deck counts">
         <div class="card">
-          <center><p>Statewide Confirmed Cases by Age Group<span></a></span></p></center>
-                <div id="agegroup-chart"></div>
+          <center>
+            <p>Statewide Confirmed Cases by Age Group<span></a></span></p>
+          </center>
+          <div id="agegroup-chart"></div>
         </div>
       </div>
       <div id="deck-4" class="card-deck counts">
         <div class="card">
-          <center><p>Statewide Confirmed Cases by Sex<span></a></span></p></center>
+          <center>
+            <p>Statewide Confirmed Cases by Sex<span></a></span></p>
+          </center>
           <div id="sex-chart"></div>
         </div>
         <div class="card">
-          <center><p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info -circle"></i></a></span></p></center>
+          <center>
+            <p>Statewide Hospitalized Cases<span><a data-toggle="modal" data-target="#hospwindow"><i class="nav fas fa-info -circle"></i></a></span></p>
+          </center>
           <div id="hosp-chart"></div>
         </div>
       </div>
       <div id="deck-5" class="card-deck counts">
         <div class="card">
-<a class="twitter-timeline" href="https://twitter.com/OHAOregon?ref_src=twsrc%5Etfw">Tweets by OHAOregon</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <a class="twitter-timeline" href="https://twitter.com/OHAOregon?ref_src=twsrc%5Etfw">Tweets by OHAOregon</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
       </div>
 
@@ -122,37 +152,36 @@
 
         <div class="card">
           <div class="card-body  legend-color-2">
-            <h5 class="card-title" style="color:black">1-4</h5>
+            <h5 class="card-title" style="color:black">1-10</h5>
 
           </div>
         </div>
         <div class="card">
           <div class="card-body  legend-color-3">
-            <h5 class="card-title" style="color:black">5-14</h5>
+            <h5 class="card-title" style="color:black">11-22</h5>
 
           </div>
         </div>
 
         <div class="card">
           <div class="card-body  legend-color-4">
-            <h5 class="card-title" style="color:black">15-25</h5>
+            <h5 class="card-title" style="color:black">23-56</h5>
 
           </div>
         </div>
 
         <div class="card">
           <div class="card-body legend-color-5">
-            <h5 class="card-title" style="color:black">26-56</h5>
+            <h5 class="card-title" style="color:black">57-151</h5>
           </div>
         </div>
 
         <div class="card">
           <div class="card-body legend-color-6">
-            <h5 class="card-title" style="color:black">57+</h5>
+            <h5 class="card-title" style="color:black">152+</h5>
           </div>
         </div>
       </div>
-
     </div>
   </main>
   <div id="infowindow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -173,13 +202,14 @@
             </p>
             <h5>Data Sources</h5>
             <p>
-            Since March 18th, 2020 the Oregon COVID-19 Data is collected from
-            <a href="https://govstatus.egov.com/OR-OHA-COVID-19" target="_blank">The Oregon Health Authority</a>(OHA)
-            and then is plotted onto this web application.
-          </p>
-        <p>Data previous to March 18th was collected from the UW HGIS Lab <a href="https://hgis.uw.edu/virus/" target="_blank">Global COVID 19 Map</a> which has been collecting county and state level data from OHA and news sources since Feb 28th, 2020.</p>
+              Since March 18th, 2020 the Oregon COVID-19 Data is collected from
+              <a href="https://govstatus.egov.com/OR-OHA-COVID-19" target="_blank">The Oregon Health Authority</a>(OHA)
+              and then is plotted onto this web application.
+            </p>
+            <p>Data previous to March 18th was collected from the UW HGIS Lab <a href="https://hgis.uw.edu/virus/" target="_blank">Global COVID 19 Map</a> which has been collecting county and state level data from OHA and news sources since Feb 28th,
+              2020.</p>
             <p>You can view the data (in CSV format) at <a href="http://benjiantolin.github.io/virusOregon/assets/timeseries/virusOregon.csv" target="_blank">here</a>.</p>
-                        <p>In the data table, each entry indicates Cases, Deaths, and Negative Test Results in the format of "#-#-#".</p>
+            <p>In the data table, each entry indicates Cases, Deaths, and Negative Test Results in the format of "#-#-#".</p>
 
 
             <p>County Polygon Data: <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html" target="_blank">U.S. Census Bureau Tiger/Line Shapefiles</a>
@@ -241,35 +271,7 @@
     });
 
 
-
-    // L.TopoJSON = L.GeoJSON.extend({
-    //   addData: function(jsonData) {
-    //     if (jsonData.type === 'Topology') {
-    //       for (key in jsonData.objects) {
-    //         geojson = topojson.feature(jsonData, jsonData.objects[key]);
-    //         L.GeoJSON.prototype.addData.call(this, geojson);
-    //       }
-    //     } else {
-    //       L.GeoJSON.prototype.addData.call(this, jsonData);
-    //     }
-    //   }
-    // });
-    // Copyright (c) 2013 Ryan Clark
-    $("#date").text("Last update: 3/30/2020");
-
-
-    // var createLabelIcon = function(labelClass, labelText) {
-    //   return L.divIcon({
-    //     className: labelClass,
-    //     html: labelText
-    //   })
-    // }
-    //
-    // var usBounds = L.latLngBounds(
-    //   L.latLng(24.520833, -124.7771694), //Southwest
-    //   L.latLng(49.384472, -66.947028) //Northeast
-    // );
-
+    $("#date").text("Last update: 4/1/2020");
 
 
     var mymap = L.map('map', {
@@ -278,15 +280,11 @@
       zoom: 7,
       maxZoom: 10,
       minZoom: 3,
-      worldCopyJump: true
     });
-    // .fitWorld()
+
     new L.Control.Zoom({
       position: 'topright'
     }).addTo(mymap);
-
-
-
 
 
     var gray = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png');
@@ -355,6 +353,7 @@
       d3.csv('assets/current/ORSex.csv'),
       d3.csv('assets/current/hospitalized.csv'),
       d3.csv('assets/current/ORAgePie.csv'),
+      d3.csv('assets/current/hospCap.csv'),
       // d3.json("assets/virusWashingtonMin.geojson")
     ]).then(function(datasets) {
 
@@ -400,6 +399,28 @@
       var cases = ["Cases"];
       var deaths = ["Deaths"]
       var negTests = ["Negative Tests"]
+      var youth = ["Youth Cases"];
+      var youthhosp = ["Youth Ever Hospitalized"];
+      var youthdeath = ["Youth Deaths"];
+      var twenties = ["Twenties Cases"];
+      var twentieshosp = ["Twenties Ever Hospitalized"];
+      var twentiesdeath = ["Twenties Deaths"];
+      var thirties = ["Thirties Cases"];
+      var thirtieshosp = ["Thirties Ever Hospitalized"];
+      var thirtiesdeath = ["Thirties Deaths"];
+      var thirties = ["Thirties Cases"];
+      var thirtieshosp = ["Thirties Ever Hospitalized"];
+      var thirtiesdeath = ["Thirties Deaths"];
+      var fifties = ["50-59 Yrs"];
+      var sixties = ["60-69 Yrs"];
+      var seventies = ["70-79 Yrs"]
+      var eightyplus = ["80+ Yrs"]
+      var agena = ["NA"]
+      var femalec = ["Female"];
+      var femalec = ["Female"];
+      var male = ["Male"]
+      var sexna = ["Not available"]
+
 
       var oregon = {
         name: "Oregon",
@@ -586,104 +607,17 @@
 
       }
 
-      // function ageCounts(i) {
-      //   datasets[2].forEach(function(d) {
-      //     var USTd = new Date(d["Date"])
-      //     t.push(USTd.setHours(USTd.getHours() + 8));
-      //     youth = 0, yadulth = 0, m = 0;
-      //     current = d;
-      //     delete current["Date"];
-      //     if (i["name"] != "Oregon") {
-      //       d = current[i["name"]];
-      //       if (d == undefined) {
-      //         d = "0"
-      //
-      //       };
-      //     } else {
-      //
-      //       Object.values(current).forEach(function(d) {
-      //         if (d == undefined) {
-      //           d = "0"
-      //         };
-      //         items = d.split("-");
-      //         switch (items.length) {
-      //           case 3:
-      //             nt += +items[2];
-      //           case 2:
-      //             td += +items[1];
-      //           case 1:
-      //             tc += +items[0];
-      //             break;
-      //         };
-      //
-      //       });
-      //       //
-      //     }
-      //     i["c"].push(tc);
-      //     // i["s"].push(sp);
-      //     i["d"].push(td);
-      //     // i["neg"].push(nt);
-      //   });
-      //
-      //   $(".cases-count").text(tc);
-      //   $(".neg-count").text(nt);
-      //   // $(".confirmed-new-count").text("+"+cc);
-      //   // $(".active-new-count").text(cd);
-      //   $(".death-count").text(td);
-      //
-      //   nc = i.c[i.c.length - 1] - i.c[i.c.length - 2];
-      //   nr = i.d[i.d.length - 1] - i.d[i.d.length - 2];
-      //   // nt = i.neg[i.neg.length - 1] - i.neg[i.neg.length - 2];
-      //
-      //   if (nc > 0) {
-      //     $(".confirmed-new-count").text("+" + nc.toString());
-      //   } else if (nc == 0) {
-      //     $(".confirmed-new-count").text("");
-      //   } else {
-      //
-      //     $(".confirmed-new-count").text(nc.toString());
-      //   }
-      //
-      //   if (nr > 0) {
-      //     $(".recovered-new-count").text("+" + nr.toString());
-      //   } else if (nr == 0) {
-      //     $(".recovered-new-count").text("")
-      //   } else {
-      //     $(".recovered-new-count").text(nr.toString());
-      //   }
-      //
-      //   // if (nt > 0) {
-      //   //   $(".recovered-new-count").text("+" + nt.toString());
-      //   // } else if (nt == 0) {
-      //   //   $(".recovered-new-count").text("")
-      //   // } else {
-      //   //   $(".recovered-new-count").text(nt.toString());
-      //   // }
-      //   //
-      //   //
-      //   if (i["name"] == "Oregon") {
-      //     $("#placename").text(i["name"] + " State");
-      //
-      //   } else {
-      //
-      //     $("#placename").text(i["name"] + " County");
-      //
-      //   }
-      //
-      //
-      // }
-
       function setColor(cases) {
 
-        if (cases >= 57) {
+        if (cases >= 152) {
           id = 5;
-        } else if (cases > 26 && cases <= 57) {
+        } else if (cases > 56 && cases <= 151) {
           id = 4;
-        } else if (cases > 15 && cases <= 26) {
+        } else if (cases > 22 && cases <= 56) {
           id = 3;
-        } else if (cases > 4 && cases <= 15) {
+        } else if (cases > 10 && cases <= 22) {
           id = 2;
-        } else if (cases > 0 && cases <= 4) {
+        } else if (cases > 0 && cases <= 10) {
           id = 1;
         } else if (cases > 0 && cases <= 0) {
           id = 0;
@@ -895,28 +829,33 @@
 
       var group = ["Age Group"];
       var cases = ["Cases"];
-      var nonhosp = ["Non Hospitalized"]
+      var nonhosp = ["Non-Hospitalized"]
       var hosp = ["Hospitalized"];
       var deaths = ["Deaths"];
 
       datasets[4].forEach(function(d) {
         group.push(+d["Age Group"])
         cases.push(+d["Cases"])
-        nonhosp.push(+d["Non Hospitalized"])
+        nonhosp.push(+d["Non-Hospitalized"])
         hosp.push(+d["Hospitalized"])
         deaths.push(+d["Deaths"])
       });
 
       var agechart = c3.generate({
-        size: {
-          height: 280,
-          width: 440
-        },
         data: {
-          columns: [cases],
+          columns: [
+            nonhosp,
+            hosp,
+            deaths
+          ],
           type: 'bar',
-          // groups:["Non Hospitalized","Hospitalized","Deaths"],
+          groups: [
+            ['Non-Hospitalized', 'Hospitalized', 'Deaths']
+          ],
           labels: true,
+        },
+        color: {
+          pattern: ['#4c97a6', '#ccd138', '#5d4f72e8']
         },
         axis: {
           x: {
@@ -925,7 +864,7 @@
               position: 'outer-middle'
             },
             type: "category",
-            categories: ['Not Availabe','80+','70 to 79','60 to 69','50 to 59', '40 to 49', '30 to 39', '20 to 29', '0-19']
+            categories: ['Not Availabe', '80+ Yrs', '70 to 79 Yrs', '60 to 69 Yrs', '50 to 59 Yrs', '40 to 49 Yrs', '30 to 39 Yrs', '20 to 29 Yrs', '0-19 Yrs']
           },
           y: {
             label: {
@@ -937,9 +876,6 @@
         },
         tooltip: {
           linked: true,
-        },
-        legend: {
-          hide: true,
         },
         bindto: "#agegroup-chart"
       });
@@ -976,35 +912,67 @@
       });
 
       // Aggregate Proportion of Hospitilizations Pie Chart
-
-      var female = ["Female"];
-      var male = ["Male"];
-      var na = ["Not available"];
-
+      var sex = ["Sex"];
+      var cases = ["Cases"];
+      var deaths = ["Deaths"];
       datasets[2].forEach(function(d) {
-        female.push(+d["Female"])
-        male.push(+d["Male"])
-        na.push(+d["Not available"])
+        sex.push(+d["Sex"])
+        cases.push(+d["Cases"])
+        deaths.push(+d["Deaths"])
       });
+
 
       sexchart = c3.generate({
         data: {
-          columns: [female, male, na],
-          type: 'pie',
+          columns: [cases, deaths],
+          type: 'bar',
           labels: true,
+          groups: [
+            ['Cases', 'Deaths']
+          ],
         },
         color: {
-          pattern: ['#b5573a', '#4769a1', 'grey']
+          pattern: ['#dc3545', '#5d4f72e8']
         },
-        tooltip: {
-          format: {
-            value: function(value, ratio, id, index) {
-              return value + " Cases";
-            }
-          }
+        axis: {
+          x: {
+            type: "category",
+            categories: ['Female', 'Male', 'NA']
+          },
+          y: {
+            label: {
+              text: 'Cases',
+              position: 'outer-middle'
+            },
+          },
         },
+        // color: {
+        //   pattern: ['#b5573a', '#4769a1']
+        // },
         bindto: "#sex-chart"
       });
+
+//Adult Hospital Bed Gauge
+var counts = ["Counts"];
+var aicubed = ["Adult ICU beds"];
+var abed = ["Adult non-ICU beds"];
+var picubed = ["Pediatric ICU beds"];
+var pbed = ["Pediatric non-ICU beds"];
+var vent = ["Ventilators"];
+var hosp = ["COVID-19 admissions"];
+var hospvent = ["COVID-19 patients on ventilators"];
+
+datasets[5].forEach(function(d) {
+  counts.push(+d["Counts"])
+  aicubed.push(+d["Adult ICU beds"])
+  abed.push(+d["Adult non-ICU beds"])
+  picubed.push(+d["Pediatric ICU beds"])
+  pbed.push(+d["Pediatric non-ICU beds"])
+  vent.push(+d["Ventilators"])
+  hosp.push(+d["COVID-19 admissions"])
+  hospvent.push(+d["COVID-19 patients on ventilators"])
+});
+
     });
 
     /////////////////////////
