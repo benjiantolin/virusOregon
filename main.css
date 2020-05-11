@@ -93,7 +93,98 @@ div#footer>div {
 }
 
 /* Responsive css */
+@media only screen and (max-width: 1026px) {
+  .legend, .leaflet-control-layers {
+    display: none;
+  }
 
+  #info, #rank-chart, #total-chart,#age-chart, .c3-legend-item, #deck-2, .c3-legend-background, #footer, #title>img, #title>span {
+    visibility: hidden !important;
+  }
+
+  .simplebar-track {
+    /* position: fixed;
+    width:100 !important; */
+    visibility: hidden !important;
+  }
+
+  #info {
+    position: fixed !important;
+    /* top: 90vh !important; */
+    /* top: 80vh; */
+    top: 0px;
+    height: 50%;
+    /* bottom: 5px; */
+    /* background-color: gray !important; */
+    left: 0;
+    /* height:30vh !important; */
+    width: 100wh !important;
+  }
+
+  #title {
+    position: fixed;
+    color: black;
+    font-size: 18px !important;
+    top: 5px !important;
+    left: -20px !important;
+    width: 400px !important;
+  }
+
+  #placename {
+    /* position: relative; */
+    color: black;
+    font-size: 30px !important;
+    position: fixed !important;
+    left: 10px;
+    top: 28px !important;
+    width: 500px;
+  }
+
+  #date {
+    /* position: relative; */
+    color: black;
+    font-size: 12px !important;
+    position: fixed !important;
+    left: 12px;
+    top: 65px !important;
+    width: 300px;
+  }
+
+  #hint {
+    /* position: relative; */
+    color: black !important;
+    font-size: 11px !important;
+    position: fixed !important;
+    left: 10px !important;
+    font-weight: bold;
+    top: 85px !important;
+    width: 300px;
+  }
+
+  #deck-1 {
+    position: fixed;
+    margin-top: 50px !important;
+    /* height:200px !important; */
+    /* right: 10px; */
+    /* width: 75% !important; */
+    left: 10px;
+    /* left: 0px !important;
+    right: 0px !important; */
+    /* position: relative; */
+    /* position: fixed; */
+    /* left: 20px; */
+    /* bottom: 5px; */
+    width: 300px;
+  }
+
+  .card-text {
+    font-size: 12px !important
+  }
+
+  .card-title {
+    font-size: 10px !important
+  }
+}
 
 #info {
   position: absolute;
